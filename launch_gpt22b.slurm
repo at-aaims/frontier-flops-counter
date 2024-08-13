@@ -112,7 +112,7 @@ export OMP_NUM_THREADS=2
 #rocprof_wrapper.sh 
 #       --save $CHECKPOINT_PATH \
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-time srun -u -n$ranks_total -c2 --ntasks-per-node=8 --gpus-per-node=8 --gpu-bind=closest python pretrain_gpt_deepspeed.py \
+time srun -u -n$ranks_total -c2 --ntasks-per-node=8 --gpus-per-node=8 --gpu-bind=closest ./rocprof_wrapper_22b.sh python pretrain_gpt_deepspeed.py \
        $GPT_ARGS \
        $OUTPUT_ARGS \
        --master-addr=$MASTER_ADDR \
